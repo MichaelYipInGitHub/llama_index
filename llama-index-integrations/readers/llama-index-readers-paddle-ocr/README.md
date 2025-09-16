@@ -4,25 +4,24 @@
 pip install llama-index-readers-paddle-ocr
 ```
 
-This loader reads the images and tables included in the PDF.
+This loader reads the equations, symbols, and tables included in the PDF.
 
-Users can input the path of the PDF document which they want to parse. This OCR understands images and tables.
+Users can input the path of the academic PDF document `file` which they want to parse. This OCR understands LaTeX math and tables.
 
 ## Usage
 
-Here's an example usage of the PDFPaddleOCRReader.
+Here's an example usage of the PDFPaddleOCR.
 
 ```python
-from llama_index.readers.paddle_ocr import PDFPaddleOCRReader
+from llama_index.readers.paddle_ocr import PDFPaddleOCR
 
-reader = PDFPaddleOCRReader()
+reader = PDFPaddleOCR()
 
-documents = reader.load_data("/path/to/pdf")
+pdf_path = Path("/path/to/pdf")
 
-for doc in documents:
-    print(doc.text)
+documents = reader.load_data(pdf_path)
 ```
 
-## Examples
+## Miscellaneous
 
-This loader is designed to be used as a way to load data into [LlamaIndex](https://github.com/run-llama/llama_index/).
+An `output` folder will be created with the same name as the pdf and `.mmd` extension.
